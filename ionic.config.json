@@ -1,0 +1,7 @@
+{
+  "name": "pantryownerweb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
