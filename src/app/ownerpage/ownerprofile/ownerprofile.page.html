@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+   <ion-title>Profile</ion-title>
+
+   <ion-buttons slot="end">
+    <ion-button class="notification">
+      <ion-icon name="notifications-outline" color="dark"></ion-icon>
+      <span>&nbsp;</span>
+    </ion-button>
+
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  
+    <br>
+    <div class="ion-text-center">
+      
+      <ion-grid class="noPadding" *ngFor="let p of users">
+        <ion-item>
+        <ion-card-content>
+          <br>
+          <p align="center"><img src="assets/profile.jpg" style="width: 120px; border-radius: 90px;"></p>
+      <br>
+  
+          <ion-item>             
+          <h1 >{{p.user_fname}} {{p.user_mname}} {{p.user_lname}}</h1> &nbsp; <ion-icon name="create-outline" (click)="openCrud(p.user_id)"></ion-icon><br>
+         </ion-item>
+    
+          <ion-item>
+            <ion-icon name="mail-outline"></ion-icon>  &nbsp;
+            <ion-label>{{p.user_email}}</ion-label>
+          </ion-item>
+              
+          <ion-item>
+            <ion-icon name="call-outline"></ion-icon>   &nbsp;
+            <ion-label> {{p.user_contact}}</ion-label>
+          </ion-item>
+
+           <ion-item *ngFor="let t of tpantries">
+            <ion-icon name="heart-circle"></ion-icon>   &nbsp;
+           Pantries:  &nbsp;<ion-badge color="success">{{t.pantries}} </ion-badge>
+          </ion-item>
+
+
+     </ion-card-content>
+      </ion-item> 
+      </ion-grid>
+
+    
+    </div>
+
+    
+ 
+</ion-content>

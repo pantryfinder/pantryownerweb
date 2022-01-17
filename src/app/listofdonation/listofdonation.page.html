@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/mypantry"></ion-back-button>
+    </ion-buttons>
+    <ion-title>List of Donors</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <div class="ion-padding" (ionChange)="segmentChanged($event)">
+    <ion-segment mode="ios" style="height: 45px;"
+     [value]="segmentValue">
+      <ion-segment-button value="1">
+         <ion-label>Number of Donors</ion-label>
+      </ion-segment-button>
+        <ion-segment-button value="2">
+           <ion-label>Donations</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+    <br>
+    <div class="ion-text-center" *ngIf="segmentValue == '1'">
+  <ion-item button *ngFor="let p of users">   
+  <ion-avatar slot="start">
+    <div class="avatar">
+      {{p.user_fname.substring(0, 1).toUpperCase()}}
+    </div>
+  </ion-avatar>
+
+    <ion-label>
+     
+      <h3 class="title">{{p.user_fname}} {{p.user_lname}} <ion-badge color="success">{{p.donations}} </ion-badge> </h3>        
+      &nbsp; &nbsp;<ion-icon name="call-outline"></ion-icon>  Number: {{p.user_contact}}<br>
+    </ion-label>
+    </ion-item>
+  </div>
+
+
+  <div class="ion-text-center" *ngIf="segmentValue == '2'">
+    <ion-item button *ngFor="let u of user"  (click)="approveddonate(u.donation_id)" >   
+    <ion-avatar slot="start">
+      <div class="avatar">
+        {{u.user_fname.substring(0, 1).toUpperCase()}}
+      </div>
+    </ion-avatar>
+  
+      <ion-label>
+       
+        <h3 class="title">{{u.user_fname}} {{u.user_lname}} </h3>        
+        &nbsp; &nbsp;<ion-icon name="wallet-outline"></ion-icon> Transaction: {{u.transaction}}<br>
+        &nbsp;<ion-icon name="radio-button-on-outline"></ion-icon> Status: 
+        <ion-badge color="success" *ngIf="u.statusofdonate==1">Accepted Donation</ion-badge>
+        <ion-badge color="danger" *ngIf="u.statusofdonate==0">Pending</ion-badge><br><br>
+      </ion-label>
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+
+      </ion-item>
+    </div>
+
+
+  </div>
+</ion-content>

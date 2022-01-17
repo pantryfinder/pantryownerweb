@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ownerpage/listofpantry"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Pantry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back1()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Pantry</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <!-- <br> <br>
+  <ion-item  ngFor="let user of users">
+    <ion-label>
+      Pantry Name:    
+    </ion-label>
+    </ion-item> -->
+    <!-- <ion-card class="ion-padding ion-text-uppercase">
+       <ion-card-header>
+      <ion-card-title>{{pantry_name}} </ion-card-title>-->
+       <!-- <ion-card-subtitle>Name of Donor</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>-->
+        
+      
+
+
+   
+      <p>
+       <ion-card class="ion-padding" *ngFor="let pantry of users">
+        
+        <ion-card-header>
+          <ion-card-title> <ion-icon name="create-outline"(click)="updatePantry(pantry.pantry_id)"></ion-icon> {{pantry.pantry_name}}  
+          <ion-badge color="success" (click)="updateStatus(pantry.pantry_id)">{{pantry.status}}</ion-badge>
+            </ion-card-title>           
+      </ion-card-header>
+     
+      
+        &nbsp; &nbsp;<ion-icon name="call-outline"></ion-icon> Contact Number: {{pantry.user_contact}} <br>
+        
+        &nbsp; &nbsp; <ion-icon name="list-outline"></ion-icon>
+          <ion-chip *ngIf="pantry.category_1!=0" shape="round" expand="block"  color="success">Foods</ion-chip>
+          <ion-chip *ngIf="pantry.category_1==0" shape="round" expand="block"  disabled="true">Foods</ion-chip>
+    
+          <ion-chip *ngIf="pantry.category_2!=0" shape="round" expand="block"  color="success">Clothes</ion-chip>
+          <ion-chip *ngIf="pantry.category_2==0" shape="round" expand="block" disabled="true">Clothes</ion-chip>
+    
+          <ion-chip *ngIf="pantry.category_3!=0" shape="round" expand="block"  color="success">Medicine</ion-chip>
+          <ion-chip *ngIf="pantry.category_3==0" shape="round" expand="block" disabled="true">Medicine</ion-chip>
+    
+ <br>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{pantry.list_of_items}} <ion-icon color="success" name="create-outline"(click)="updatePantry(pantry.pantry_id)"></ion-icon> <br>
+        &nbsp; &nbsp;<ion-icon name="location-outline"></ion-icon> Address: {{pantry.street_address}} {{pantry.barangay}} {{pantry.municipality}} {{pantry.province}}  <br>
+      <!--  &nbsp; &nbsp;<ion-icon name="location-outline"></ion-icon> Region: {{pantry.region}} <br>-->
+        &nbsp; &nbsp;<ion-icon name="call-outline"></ion-icon> GCash Number: {{pantry.gcash_number}} <br>
+     
+
+        <ion-button shape ="round" expand="full" class="ion-padding" color="success" style="height: 45px;" (click)="openPantry(pantry.pantry_id)">List of Donors</ion-button>    
+        <ion-button shape ="round" expand="full" class="ion-padding" color="danger"  style="height: 45px;" (click)="deletePantry(pantry.pantry_id)">Delete Pantry</ion-button> <br>      
+        
+      </ion-card>  
+      
+         </p>
+
+         
+    
+   
+   
+ 
+</ion-content>

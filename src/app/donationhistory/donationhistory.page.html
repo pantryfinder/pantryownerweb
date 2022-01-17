@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/donorpage/listofpantry"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Donation History</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="ion-padding" (ionChange)="segmentChanged($event)">
+    <ion-segment mode="ios" [value]="segmentValue">
+      <ion-segment-button value="1">
+       
+         <ion-label >Pending Donations </ion-label>
+       
+      </ion-segment-button>
+        <ion-segment-button value="2">
+        
+           <ion-label>Accepted Donations</ion-label>
+         
+          </ion-segment-button>
+    </ion-segment>
+
+    <br>
+    <div *ngIf="segmentValue == '1'">
+
+      <ion-item *ngFor = "let tp of totalpending">
+
+        <ion-label>Total Pending Donations: <ion-badge>{{tp.donations}}</ion-badge></ion-label>
+       
+      </ion-item>
+
+
+
+      <ion-list>
+
+        <ion-item-sliding *ngFor="let pantry of pending">
+         
+          <ion-item>
+          
+            <ion-label>
+
+             <h1>{{pantry.pantry_name}}</h1><ion-badge color="danger">(Slide to Cancel)</ion-badge><br>
+           
+            &nbsp;<ion-icon name="location-outline"></ion-icon> {{pantry.address}} <br>
+            
+            &nbsp;<ion-icon name="call-outline"></ion-icon> {{pantry.user_contact}}<br>
+            &nbsp;<ion-icon name="calendar-outline"></ion-icon> {{pantry.date_of_donation}} <br>
+            &nbsp;<ion-icon name="toggle-outline"></ion-icon> {{pantry.transaction}} <br>
+           
+            </ion-label>
+          </ion-item>
+          <ion-item-options>
+          
+            <ion-item-option (click)="delData(pantry.donation_id)" color="danger">Cancel<br> Donation</ion-item-option>
+           
+          </ion-item-options>
+        </ion-item-sliding>
+        
+      </ion-list>
+
+
+     
+  </div>
+
+  <div *ngIf="segmentValue == '2'">
+    <ion-item *ngFor = "let ta of totalaccepted">
+
+      <ion-label>Total Accepted Donations: <ion-badge>{{ta.donations}}</ion-badge></ion-label>
+    </ion-item>
+
+      <ion-card class="ion-padding " *ngFor="let pantry of users">
+       
+         <ion-card-header>
+           <ion-card-title>{{pantry.pantry_name}}</ion-card-title>
+         </ion-card-header>
+    
+     
+      &nbsp; &nbsp;<ion-icon name="call-outline"></ion-icon> Address: {{pantry.address}} <br>
+       &nbsp; &nbsp;<ion-icon name="document-text-outline"></ion-icon> Email: {{pantry.user_email}} <br>
+       &nbsp; &nbsp;<ion-icon name="location-outline"></ion-icon> Phone Number: {{pantry.user_contact}}<br>
+       &nbsp; &nbsp;<ion-icon name="location-outline"></ion-icon> Date of Donation: {{pantry.date_of_donation}} <br>
+       &nbsp; &nbsp;<ion-icon name="mail-outline"></ion-icon> Transaction: {{pantry.transaction}} <br>
+       &nbsp; &nbsp;<ion-icon name="mail-outline"></ion-icon> Status:  <ion-badge color="success">Done</ion-badge> <br>
+
+        </ion-card>  
+     
+  </div>
+  </div>
+</ion-content>

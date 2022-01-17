@@ -1,0 +1,34 @@
+ion-slide{
+    height: 100vh;
+    flex-direction: column;
+}
+
+img{
+    width: 280px;
+}
+
+.slide-one{
+    background: rgb(36, 36, 36);
+    color: rgb(255, 255, 255);
+}
+
+.slide-two{
+    background: rgb(255, 255, 255);
+    color: #333;
+}
+
+
+.labelintro{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.labelintro span{
+    font-size: 14px;
+}
+
+.start {
+    margin-top: -10px;
+}
+
+

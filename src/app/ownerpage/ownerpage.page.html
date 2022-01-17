@@ -1,0 +1,32 @@
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab($event)">
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="menu-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="light"  (click)="log_out()"  data-desc="Log Out" >
+        <ion-icon name="log-out-outline" color="success"> </ion-icon>       
+      </ion-fab-button>
+   
+      <ion-fab-button color="light"  (click)="listofpantry()"  data-desc="List of Pantry" >
+        <ion-icon name="list-outline" color="success"></ion-icon>
+      </ion-fab-button>
+
+     <ion-fab-button color="light"  (click)="mypantry()"  data-desc="My Pantry" >
+        <ion-icon name="list-outline" color="success"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" (click)="addpantry()"  data-desc="Add Pantry">
+        <ion-icon name="add-outline"  color="success"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="light"  (click)="map()"  data-desc="Map" >
+        <ion-icon name="map-outline" color="success"></ion-icon>
+      </ion-fab-button>
+
+      <ion-fab-button color="light" (click)="ownerprofile()"  data-desc="Profile" >
+        <ion-icon name="person-outline" color="success"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-tabs> 

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ownerpage/listofpantry"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Pantry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <br> <br>
+  <ion-item  ngFor="let user of users">
+    <ion-label>
+      Pantry Name:    
+    </ion-label>
+    </ion-item> -->
+   
+    <ion-list *ngFor="let pantry of community_pantry">
+      <h3 class="title">  &nbsp; &nbsp;  &nbsp;{{pantry.pantry_name}} <br> 
+      </h3>
+      <p>
+      &nbsp; &nbsp;<ion-icon name="call-outline"></ion-icon> Phone Number: {{pantry.phone_number}} <br>
+        &nbsp; &nbsp;<ion-icon name="document-text-outline"></ion-icon> List of Items: {{pantry.list_of_items}} <br>
+        &nbsp; &nbsp;<ion-icon name="location-outline"></ion-icon> Address: {{pantry.street_address}} {{pantry.barangay}} {{pantry.municipality}} {{pantry.province}} <br>
+        &nbsp; &nbsp;<ion-icon name="location-outline"></ion-icon> Region: {{pantry.region}} <br>
+        &nbsp; &nbsp;<ion-icon name="mail-outline"></ion-icon> Email: {{pantry.email}} <br>
+        &nbsp; &nbsp;<ion-icon name="call-outline"></ion-icon> GCash Number: {{pantry.gcash_number}} <br>
+        &nbsp; &nbsp;<ion-icon name="toggle-outline"></ion-icon> Status: {{pantry.status}} <br>    
+      
+    </ion-list>
+   
+</ion-content>

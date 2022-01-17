@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/donorpage/listofpantry"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Donate </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="bg" padding>
+<ion-list>
+    <div class="user">
+    
+    <h2 align="center">Pantry <span>Finder</span></h2>
+  
+     
+  <ion-item>
+    <ion-label position="floating">First Name(Optional) </ion-label>
+     <ion-input clearInput value="" [(ngModel)]="user_fname"> </ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Last Name(Optional)</ion-label>
+    <ion-input clearInput value="" [(ngModel)]="user_lname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-input [(ngModel)]="address"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Contact Number</ion-label>
+    <ion-input *ngIf="user_id==0"  [(ngModel)]="user_contact"></ion-input>
+    <ion-input *ngIf="user_id!=0" readonly="true"  [(ngModel)]="user_contact"></ion-input>
+  </ion-item>
+
+  <!-- <ion-item>
+    <ion-label position="floating">Email Address</ion-label>
+    <ion-input *ngIf="user_id==0" [(ngModel)]="user_email"></ion-input>
+    <ion-input *ngIf="user_id!=0" readonly="true"  [(ngModel)]="user_email"></ion-input>
+    
+  </ion-item> -->
+
+  <ion-item>
+    <ion-label position="floating">Transaction </ion-label>
+    <ion-select interface="popover" [(ngModel)]="transaction">
+      <ion-select-option value="GCash">GCash</ion-select-option>
+      <ion-select-option value="Face to Face">Face to Face</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label position="floating" >Date of Donation: </ion-label><br>
+    <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="date_of_donation" min="1960-08-17" max="2022-12-01"></ion-datetime>
+  </ion-item>
+
+  <ion-item *ngFor = "let p of users">
+    <br><br>
+    <ion-label > Number of Donors: <ion-badge>{{p.pantry_id}}</ion-badge> </ion-label>
+  </ion-item>
+
+   <ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="donate()" [disabled]="disabledButton"> Donate on <br> {{pantry_name}} </ion-button>
+</div>
+<br> <br>
+</ion-list>
+
+
+
+</ion-content>
+
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pantrypost"></ion-back-button>
+    </ion-buttons>
+   <ion-title> Pantry Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="noPadding">
+         
+    <br>
+    <p>&nbsp; &nbsp;Pantry Name: {{pantry_name}} <br>
+      &nbsp; &nbsp;Phone Number: {{phone_number}} <br>
+      &nbsp; &nbsp;List of Items: {{list_of_items}} <br>
+      &nbsp; &nbsp;Address: {{street_address}} {{barangay}} {{municipality}}  {{province}} <br>
+      &nbsp; &nbsp;Region: {{region}} <br>
+      &nbsp; &nbsp;Email: {{email}} <br>
+      &nbsp; &nbsp;GCash Number: {{gcash_number}} <br>
+      &nbsp; &nbsp;Category: {{category}} <br>
+      &nbsp; &nbsp;Status: {{status}} <br>    
+     </p>
+  </ion-grid>
+  <ion-button expand="full" class="ion-padding" color="success" (click)="openDonate()">Donate</ion-button>
+  <ion-button expand="full" class="ion-padding" color="success" (click)="openMap()">Go to Map</ion-button>
+  
+
+</ion-content> -->
+
+
+<!--<ion-header>
+  <ion-toolbar>
+     &nbsp; <ion-icon name="chevron-back-outline" size="large" [routerLink]="['/pantrypost']"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-slides class="listSlides">
+    <ion-slide>
+      <div> <br>
+        <img src="assets/pantry1.jpg">
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-item lines='none'>
+   <p>Pantry Name: Calatagan Pantry <br>
+    Pantry Owner: Ma. Vianca Tumbaga <br>
+    Contact Number: 09628388273
+    Location: Calatagan, Lian, Batangas</p> 
+  </ion-item>
+
+
+</ion-content> -->

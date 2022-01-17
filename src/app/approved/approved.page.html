@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/mypantry"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Accept Donation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-item *ngFor="let p of users">
+    <p>
+     <ion-card class="ion-padding">
+        <ion-card-header>
+          <ion-card-title><b>{{p.user_fname}} {{p.user_lname}}</b> </ion-card-title>        
+        </ion-card-header>
+
+      &nbsp; &nbsp;<ion-icon name="location-outline"></ion-icon> Address: {{p.address}}<br>
+      &nbsp; &nbsp;<ion-icon name="mail-outline"></ion-icon> Email: {{p.user_email}} <br>
+      &nbsp; &nbsp;<ion-icon name="call-outline"></ion-icon> Contact Number: {{p.user_contact}} <br>
+      &nbsp; &nbsp;<ion-icon name="calendar-outline"></ion-icon> Date of Donation: {{p.date_of_donation}} <br>
+      &nbsp; &nbsp;<ion-icon name="wallet-outline"></ion-icon> Transaction: {{p.transaction}} <br>
+      &nbsp; &nbsp;<ion-icon name="toggle-outline"></ion-icon> Status: 
+      <ion-badge color="success" *ngIf="p.statusofdonate==1">Accepted Donation</ion-badge>
+      <ion-badge color="danger" *ngIf="p.statusofdonate==0">Pending</ion-badge><br><br>
+
+      
+  
+      <ion-button *ngIf="p.statusofdonate!=0" shape="round" expand="block"  color="success">Accepted Donation</ion-button>
+      <ion-button *ngIf="p.statusofdonate==0" shape="round" expand="block"  color="danger" (click)="approved('You')">Accept Donation</ion-button>
+      <ion-button *ngIf="p.transaction=='GCash'" shape="round" expand="block"  color="success" (click)="sendmessage(p.donation_id)">Send Message</ion-button>
+      <br>
+    </ion-card>  
+    
+       </p>
+
+       
+    </ion-item>
+ 
+ 
+
+</ion-content>

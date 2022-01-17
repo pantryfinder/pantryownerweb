@@ -1,0 +1,156 @@
+<ion-header>
+  <ion-toolbar>   
+    <ion-title>New Community Pantry</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+<ion-list>
+  <div class="user">
+  <h2 align="center">Pantry <span>Finder</span></h2>
+
+  <p class="ins"> <i>(Para po sa address ng pantry nyo na mai-pin sa map, punta po kayo sa <span>https://www.maps.ie/coordinates.html</span> ) </i></p>
+<p class="ins1"> <i>At ifillup po sa baba ang latitude at longitude ng lugar ng inyong pantry. Siguraduhin pong tama ang <br>
+ififill up para po mai pin sya sa map, salamat kaPan!! </i></p>
+<p class="ins"> <span (click)="openTransparentModal()">Steps </span></p>
+
+<ion-item>
+  <ion-label position="floating">Latitude</ion-label>
+  <ion-input [(ngModel)]="longitude"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Longitude</ion-label>
+  <ion-input [(ngModel)]="latitude"></ion-input>
+</ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Pantry Name</ion-label>
+      <ion-input [(ngModel)]="pantry_name"></ion-input>
+    </ion-item>
+
+   
+      <ion-item>
+        <ion-label position="floating">Phone Number(e.g. 09123456789)</ion-label>
+        <ion-input [(ngModel)]="user_contact"></ion-input>
+      </ion-item>
+    
+      <br>
+
+
+  &nbsp;  <ion-label position="floating">Category</ion-label>
+  <ion-item>
+    <ion-label>  &nbsp;&nbsp; Food </ion-label>
+     <ion-checkbox [(ngModel)]="category_1"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>  &nbsp;&nbsp; Clothes </ion-label>  
+    <ion-checkbox [(ngModel)]="category_2"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    
+    <ion-label>  &nbsp;&nbsp; Medicine </ion-label>
+    <ion-checkbox [(ngModel)]="category_3"></ion-checkbox>
+  </ion-item>
+
+
+<ion-item>
+  <ion-label position="floating">List of Items/List of items needed</ion-label>
+  <ion-input [(ngModel)]="list_of_items"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Street Address</ion-label>
+  <ion-input [(ngModel)]="street_address"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Barangay</ion-label>
+  <ion-input [(ngModel)]="barangay"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Municipality</ion-label>
+  <ion-input [(ngModel)]="municipality"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Province</ion-label>
+  <ion-input [(ngModel)]="province"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Open Time (e.g 7:00 AM)</ion-label>
+  <ion-input [(ngModel)]="open_time"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Close Time (e.g 4:00 PM)</ion-label>
+  <ion-input [(ngModel)]="close_time"></ion-input>
+</ion-item>
+
+
+
+
+ <!--<ion-item>
+     <ion-item>
+  &nbsp;<ion-label>Open Time</ion-label>
+  <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" presentation="time" [(ngModel)]="open_time"></ion-datetime>
+</ion-item>
+
+
+<ion-item>
+  &nbsp;<ion-label>Close Time</ion-label>
+  <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" presentation="time" [(ngModel)]="close_time"></ion-datetime>
+</ion-item>
+
+  <ion-label position="floating">Schedule (e.g 8:00 AM to 4:00 PM)</ion-label>
+  <ion-input [(ngModel)]="schedule"></ion-input>
+</ion-item> -->
+
+<ion-item>
+  <ion-label position="floating">Email Address</ion-label>
+  <ion-input [(ngModel)]="user_email"></ion-input>
+</ion-item>
+
+<form [formGroup]="form">
+<ion-item>
+  <ion-label position="floating">GCash Number</ion-label>
+  <ion-input  formControlName="phone"  [(ngModel)]="gcash_number"></ion-input>
+</ion-item>
+<ion-text class="error" color="danger" 
+*ngIf="!form.get('phone').valid && form.get('phone').touched">
+<ion-text *ngIf="form.get('phone').hasError('required')">
+  *Phone no is Required(minimum length 11,numbers are only allowed)
+</ion-text>
+<ion-text 
+  *ngIf="!form.get('phone').hasError('required') && form.get('phone').hasError('minlength')">
+  *  Please input a valid number.
+</ion-text>
+</ion-text>
+</form>
+
+
+<ion-item>
+  <ion-label position="floating">Status</ion-label>
+  <ion-select interface="popover" [(ngModel)]="status">
+    <ion-select-option value="Open">Open</ion-select-option>
+    <ion-select-option value="Closed">Closed</ion-select-option>
+    <ion-select-option value="Needs Donation">Needs Donation</ion-select-option>
+    
+  </ion-select>
+</ion-item>
+
+<ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="addPantry()" [disabled]="disabledButton">Submit</ion-button>
+
+</div>
+<br>
+</ion-list>
+
+
+</ion-content>

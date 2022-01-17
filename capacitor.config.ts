@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'pantryownerweb',
+  appName: 'Pantryfinder',
   webDir: 'www',
   bundledWebRuntime: false
 };

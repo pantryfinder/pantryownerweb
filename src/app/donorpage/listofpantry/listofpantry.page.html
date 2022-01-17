@@ -1,0 +1,137 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      <img style="height: 40px;" src='assets/netflix_logo.png'>
+    </ion-title>
+    
+    
+    <ion-buttons slot="end">
+      <ion-button shape="round" (click)="openTransparentModalDonors()" color="success">
+        <ion-badge style ="font-size: 9px;" color="success">Top Donors</ion-badge>
+        <ion-icon name="diamond-outline"></ion-icon>
+      </ion-button>
+      <ion-button  routerLink="/search">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-item lines='none'>
+    Categories
+   </ion-item>
+   
+  <ion-slides class="slides" [options]='slideOpts'>
+
+    <div class="wrapper" > 
+  &nbsp;
+      <div class="image-card">
+        <img src="assets/typhoon2.png">
+        <p>Typhoon or disasters</p>
+      </div> 
+  
+   
+      <div class="image-card">
+        <img src="assets/food.png">
+        <p>Community Pantry</p>
+      </div> 
+  
+    
+    </div>
+  
+  </ion-slides>
+  
+  <ion-button shape="round" (click)="openTransparentModal()" expand="full" color="success">Recommended</ion-button> 
+ <!-- <ion-slide *ngFor='let img of [2]'>
+    <div>
+      <img src="assets/images/{{ img }}.jpg" tappable (click)="openPreview(img)">
+      <p class="title">LUYAHAN PANTRY</p>
+    </div>
+  </ion-slide>
+
+  <ion-slide *ngFor='let img of [3]'>
+    <div>
+      <img src="assets/images/{{ img }}.jpg" tappable (click)="openPreview(img)">
+      <p class="title">KAPITO PANTRY</p>
+    </div>
+  </ion-slide>
+
+  <ion-slide *ngFor='let img of [4]'>
+    <div>
+      <img src="assets/images/{{ img }}.jpg" tappable (click)="openPreview(img)">
+      <p class="title">MATABUNGKAY PANTRY</p>
+      
+    </div>
+  </ion-slide>
+
+  <ion-slide *ngFor='let img of [5]'>
+    <div>
+      <img src="assets/images/{{ img }}.jpg" tappable (click)="openPreview(img)">
+      <p class="title">LIAN PANTRY</p>
+    </div>
+  </ion-slide>-->
+
+
+
+<ion-item lines='none'>
+  Community Pantry (Slide to Donate) 
+</ion-item>
+
+
+  <ion-item-sliding *ngFor="let p of users">
+    <ion-item >
+    
+      <ion-avatar slot="start">
+        <div class="avatar">
+          {{p.pantry_name.substring(0, 1).toUpperCase()}}
+        </div>
+      </ion-avatar>
+      <ion-label>
+        <div *ngIf="!p.showMore" >
+        <h3 class="title"> {{p.pantry_name}} <br> 
+        </h3>
+      
+        {{'Pantry Owner: ' + p.user_fname + ' ' + p.user_lname }} <br>
+          <!--{{'Phone Number: ' + p.user_contact }} <br>
+          {{'List of Items: ' + p.list_of_items}} <br>-->
+          {{'Address: ' + p.barangay  + ',' + p.municipality + ',' + p.province}} <br>
+          <!--{{'Email: ' + p.email }} <br>
+          {{'Gcash Number ' + p.gcash_number }} <br>-->
+         Status: <ion-badge color="success">{{p.status}}</ion-badge><br>
+        </div>
+
+        <div *ngIf="p.showMore">
+          <h3 class="title">{{p.pantry_name}} <br> 
+          </h3>
+        
+          {{'Pantry Owner: ' + p.user_fname + ' ' + p.user_lname  }} <br>
+          {{'Address: ' + p.barangay  + ',' + p.municipality + ',' + p.province}} <br>
+          Status: <ion-badge color="success">{{p.status}}</ion-badge><br>
+          {{'Contact Number: ' + p.user_contact}} <br>
+          {{'List of Items: ' + p.list_of_items}} <br>
+          {{'Gcash Number: ' + p.gcash_number }} <br>
+          {{p.open_time + ' to ' + p.close_time   }} <br>
+          </div>
+       
+        <ion-button  (click)="p.showMore = !p.showMore" fill="clear" color="success">Show <span [innerHtml]="p.showMore ? ' less' : ' More... '">  </span></ion-button>
+
+         <ion-icon name="chatbox-ellipses-outline" style="width: 30px; height: 20px;"></ion-icon><span (click)="openViewComment(p.pantry_id)">Comments </span> &nbsp;
+    
+
+
+          
+      </ion-label>
+     
+    </ion-item>
+
+    <ion-item-options>
+      <ion-item-option (click)="openPantry(p.pantry_id)" color ="success"> <ion-icon name="heart-circle-outline"> </ion-icon>Donate</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+
+</ion-content>

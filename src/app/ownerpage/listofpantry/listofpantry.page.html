@@ -1,0 +1,83 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>
+      <img style="height: 40px;" src='assets/netflix_logo.png'>
+    </ion-title>
+   
+    <ion-buttons slot="end">
+      <ion-button shape="round" (click)="openTransparentModalDonors()" color="success">
+        <ion-badge style ="font-size: 9px;" color="success">Top Donors</ion-badge>
+        <ion-icon name="diamond-outline"></ion-icon>
+      </ion-button>
+      <ion-button  routerLink="/search">
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  
+  <!-- <ion-button (click)="openPantry(p.user_id)">My pantry</ion-button> <br><br> <br> -->
+ 
+
+    <div class="wrapper" > 
+  &nbsp;
+      <div class="image-card">
+        <img src="assets/typhoon2.png">
+        <p>Typhoon or disasters</p>
+      </div> 
+  
+   
+      <div class="image-card">
+        <img src="assets/food.png">
+        <p>Community Pantry</p>
+      </div> 
+  
+    
+    </div>
+  
+
+
+  <ion-button shape="round" (click)="openTransparentModal()" expand="full" color="success">Recommended</ion-button> 
+<ion-item lines='none'>
+  Community Pantry  
+</ion-item>
+
+
+  
+    <ion-item *ngFor="let p of users">
+     
+      <ion-avatar slot="start">
+        <div class="avatar">
+          {{p.pantry_name.substring(0, 1).toUpperCase()}}
+        </div>
+      </ion-avatar>
+      <ion-label>
+        <h3 class="title">{{p.pantry_name}}</h3>
+      
+        {{'Pantry Owner: ' + p.user_fname +  ' ' + p.user_lname }} <br>
+          <!--{{'Phone Number: ' + p.phone_number }} <br>
+          {{'List of Items: ' + p.list_of_items}} <br>-->
+          {{'Address: ' + p.barangay  + ',' + p.municipality + ',' + p.province}} <br>
+          <!--{{'Email: ' + p.email }} <br>
+          {{'Gcash Number ' + p.gcash_number }} <br>-->
+          {{'Schedule: ' + p.open_time + ' - ' + p.close_time }} <br>
+          Status: <ion-badge color="success">{{p.status}}</ion-badge><br>
+        
+      </ion-label>
+    
+      <ion-button shape="round" (click)="openPantry(p.pantry_id)" color ="success" size="height: 20px"><ion-icon name="eye-outline"> </ion-icon> View</ion-button>
+   
+    </ion-item>
+
+   
+ 
+ 
+
+
+</ion-content>

@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>   
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Community Pantry</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+<ion-list>
+  <h3 style="text-align: center;">Pantry <span>Finder</span></h3>
+
+<ion-item>
+    <ion-label position="floating">Pantry Name</ion-label>
+    <ion-input clearInput value="" [(ngModel)]="pantry_name"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Phone Number</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="user_contact"></ion-input>
+</ion-item>
+
+&nbsp;  <ion-label position="floating">Category</ion-label>
+<ion-item>
+  <ion-checkbox checked="false" [(ngModel)]="category_1"></ion-checkbox>
+  <ion-label>  &nbsp;&nbsp; Food </ion-label>
+</ion-item>
+
+<ion-item>
+  <ion-checkbox  [(ngModel)]="category_2"></ion-checkbox>
+  <ion-label>  &nbsp;&nbsp; Clothes </ion-label>  
+</ion-item>
+
+<ion-item>
+  <ion-checkbox [(ngModel)]="category_3"></ion-checkbox>
+  <ion-label>  &nbsp;&nbsp; Medicine </ion-label>
+</ion-item>
+
+
+
+<ion-item>
+  <ion-label position="floating">List of Items</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="list_of_items"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Street Address</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="street_address"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Barangay</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="barangay"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Municipality</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="municipality"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Province</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="province"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Open Time (e.g 7:00 AM)</ion-label>
+  <ion-input [(ngModel)]="open_time"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Close Time (e.g 4:00 PM)</ion-label>
+  <ion-input [(ngModel)]="close_time"></ion-input>
+</ion-item>
+
+
+<ion-item>
+  <ion-label position="floating">Email Address</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="user_email"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">GCash Number</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="gcash_number"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="floating">Status</ion-label>
+  <ion-select interface="popover" [(ngModel)]="status">
+    <ion-select-option value="Open">Open</ion-select-option>
+    <ion-select-option value="Closed">Closed</ion-select-option>
+    <ion-select-option value="Needs Donation">Needs Donation</ion-select-option>
+    
+  </ion-select>
+</ion-item>
+
+<ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="crudAction('Updated')" [disabled]="disabledButton">Update</ion-button>
+<!-- <ion-button shape="round" expand="full" class="ion-padding" color="success" 
+(click)="crudAction()" [disabled]="disabledButton">Close Pantry</ion-button> -->
+<br>
+</ion-list>
+
+
+</ion-content>

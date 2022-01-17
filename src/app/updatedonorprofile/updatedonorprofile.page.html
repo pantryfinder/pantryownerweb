@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ownerpage/ownerprofile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg" padding>
+<ion-list>
+    
+
+  <br>
+      
+  <h3 style="text-align: center;">Personal <span>Information</span></h3>
+  <br>
+
+  <ion-item>
+    <ion-label position="floating">First Name</ion-label>
+    <ion-input [(ngModel)]="user_fname"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Middle Name</ion-label>
+    <ion-input [(ngModel)]="user_mname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Last Name</ion-label>
+    <ion-input [(ngModel)]="user_lname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Phone Number</ion-label>
+    <ion-input [(ngModel)]="user_contact"></ion-input>
+  </ion-item>
+
+
+    <ion-item>
+      <ion-input type="text" placeholder="Email Address"  *ngIf="user_id==0" [(ngModel)]="user_email">
+      </ion-input>
+      <ion-input type="text" placeholder="Email Address"  *ngIf="user_id!=0" readonly="true" [(ngModel)]="user_email">
+      </ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating" >Username</ion-label>
+      <ion-input *ngIf="user_id==0" [(ngModel)]="username"></ion-input>
+      <ion-input *ngIf="user_id!=0" readonly="true" [(ngModel)]="username"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input  type ="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <p style="font-size: 14px; color: #999;" class="ion-padding" *ngIf="id!=0">
+      Leave the password blank if you don't want to change it.
+    </p>
+
+    <ion-button expand="full" shape="round"class="ion-padding"  *ngIf="user_id!=0" color="success" (click)="crudAction('Update')" [disabled]="disabledButton">Submit</ion-button>
+<br> <br> <br>
+  </ion-list>
+
+</ion-content>

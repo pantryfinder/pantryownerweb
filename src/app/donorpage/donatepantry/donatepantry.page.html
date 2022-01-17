@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <ion-title>Donate Pantry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="bg" padding>
+<ion-list>
+    <div class="user">
+    <h2 align="center">Pantry <span>Finder</span></h2>
+    
+     
+  <ion-item>
+    <ion-label position="floating">First Name</ion-label>
+    <ion-input [(ngModel)]="user_fname"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Last Name</ion-label>
+    <ion-input [(ngModel)]="user_lname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Address</ion-label>
+    <ion-input [(ngModel)]="address"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Phone Number</ion-label>
+    <ion-input [(ngModel)]="phone_number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email Address</ion-label>
+    <ion-input [(ngModel)]="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Transaction </ion-label>
+    <ion-select interface="popover" [(ngModel)]="transaction">
+      <ion-select-option value="GCash">GCash</ion-select-option>
+      <ion-select-option value="Face to Face">Face to Face</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <p style="font-size: 14px; color: #999;" class="ion-padding" *ngIf="id!=0">
+    If you choose GCash, you don't need to fill out the next form but if you choose face to face, please fillout the next form.
+  </p>
+
+  <ion-item>
+    <ion-label position="floating" >Date of Donation: </ion-label>
+    <ion-datetime displayFormat="YYYY/MM/DD" [(ngModel)]="date_of_donation" min="1960-08-17" max="2022-12-01"></ion-datetime>
+  </ion-item>
+
+  <!--<ion-button expand="full" class="ion-padding" color="success" (click)="donate()" [disabled]="disabledButton">Donate</ion-button> -->
+</div>
+<br> <br>
+</ion-list>
+
+
+
+</ion-content>
+
+ <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+<ion-list>
+  <div class="user">
+  <h2 align="center">Pantry <span>Finder</span></h2>
+  <ion-searchbar [(ngModel)]="term" showCancelButton="focus" cancelButtonText="Custom Cancel"></ion-searchbar>
+      <ion-list>
+    <ion-item *ngFor="let p of pantry |filter:term">
+      <ion-avatar slot="start">
+        <div class="avatar">
+          {{p.pantry_name.substring(0, 1).toUpperCase()}}
+        </div>
+      </ion-avatar>
+      <ion-label>
+        <h3 class="title"> Pantry Name: {{p.pantry_name}} <br> 
+        </h3>
+        <p class="subtext">
+          {{'Phone Number: ' + p.phone_number }} <br>
+          {{'List of Items: ' + p.list_of_items}} <br>
+          {{'Address: ' + p.barangay  + ',' + p.municipality + ',' + p.province}} <br>
+          {{'Email: ' + p.email }} <br>
+          {{'Gcash Number ' + p.gcash_number }} <br>
+          {{'Status ' + p.status }} <br>
+        </p>
+         </ion-label>
+    </ion-item>
+  </ion-list>
+
+   
+</div>
+<br><br><br><br>
+</ion-list>
+-->

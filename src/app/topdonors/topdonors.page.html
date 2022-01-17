@@ -1,0 +1,153 @@
+<ion-content [fullscreen]="true">
+  <ion-row>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <h1> Top Donors<br></h1>
+    <ion-col size="12" *ngFor="let p of topdonors" class ="ion-text-center">
+      <ion-card-content>  
+        <ion-item class="color" >
+          <ion-avatar slot="start">
+            <div class="avatar">
+              {{p.user_fname.substring(0, 1).toUpperCase()}}
+            </div>
+          </ion-avatar>
+          <h2 class="title">{{p.user_fname}} {{p.user_lname}}
+            <ion-badge color="success">{{p.donations}} </ion-badge> <br>
+      
+        <!--FOR BRONZE-->
+          <ion-chip *ngIf="p.donations==5"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==5"></ion-icon>
+          <ion-label *ngIf="p.donations==5">Bronze Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==6"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==6"></ion-icon>
+          <ion-label *ngIf="p.donations==6">Bronze Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==7"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==7"></ion-icon>
+          <ion-label *ngIf="p.donations==7">Bronze Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==8"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==8"></ion-icon>
+          <ion-label *ngIf="p.donations==8">Bronze Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==9"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==9"></ion-icon>
+          <ion-label *ngIf="p.donations==9">Bronze Donors</ion-label>  
+        </ion-chip>
+        
+         <!--FOR SILVER-->
+         <ion-chip *ngIf="p.donations==10"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==10"></ion-icon>
+          <ion-label *ngIf="p.donations==10">Silver Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==11"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==11"></ion-icon>
+          <ion-label *ngIf="p.donations==11">Silver Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==12"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==12"></ion-icon>
+          <ion-label *ngIf="p.donations==12">Silver Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==13"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==13"></ion-icon>
+          <ion-label *ngIf="p.donations==13">Silver Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==14"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==14"></ion-icon>
+          <ion-label *ngIf="p.donations==14">Silver Donors</ion-label>  
+        </ion-chip>
+        
+
+         <!--FOR GOLD-->
+         <ion-chip *ngIf="p.donations==15"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==15"></ion-icon>
+          <ion-label *ngIf="p.donations==15">Gold Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==16"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==16"></ion-icon>
+          <ion-label *ngIf="p.donations==16">Gold Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==17"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==17"></ion-icon>
+          <ion-label *ngIf="p.donations==17">Gold Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==18"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==18"></ion-icon>
+          <ion-label *ngIf="p.donations==18">Gold Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==19"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==19"></ion-icon>
+          <ion-label *ngIf="p.donations==19">Gold Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==20"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==20"></ion-icon>
+          <ion-label *ngIf="p.donations==20">Gold Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==21"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==21"></ion-icon>
+          <ion-label *ngIf="p.donations==21">Gold Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==22"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==22"></ion-icon>
+          <ion-label *ngIf="p.donations==22">Gold Donors</ion-label>  
+        </ion-chip>
+
+        <ion-chip *ngIf="p.donations==23"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==23"></ion-icon>
+          <ion-label *ngIf="p.donations==23">Gold Donors</ion-label>  
+        </ion-chip>
+
+
+        <ion-chip *ngIf="p.donations==24"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations==24"></ion-icon>
+          <ion-label *ngIf="p.donations==24">Gold Donors</ion-label>  
+        </ion-chip>
+
+        <!--FOR PLATINUM-->
+
+        <ion-chip *ngIf="p.donations>=25"> 
+          <ion-icon color ="success" name="diamond-outline" *ngIf="p.donations>=25"></ion-icon>
+          <ion-label *ngIf="p.donations>=25">Platinum Donors</ion-label>  
+        </ion-chip>
+
+
+       </h2>
+       </ion-item>  
+       
+    </ion-card-content>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer class="ion-text-center">
+  <ion-toolbar>
+    <ion-button (click)="next()" fill="clear" color="light">
+    
+      <ion-icon name="close-circle"></ion-icon>
+    </ion-button>
+
+   
+  </ion-toolbar>
+</ion-footer>

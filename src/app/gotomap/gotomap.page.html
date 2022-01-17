@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" icon="menu"></ion-menu-button>MAP OF LIAN
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="map" style="width: 100%; height:95%;"></div>
+  <p align="center">
+     <ion-icon name="navigate-circle" (click)="getPositions()"> </ion-icon>  
+  </p>
+ 
+  <!-- <ion-button (click)="getPositions()">
+    Click to show your Location
+  </ion-button> -->
+  
+
+  
+</ion-content>

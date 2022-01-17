@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/donorpage/listofpantry"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Comment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="bg" padding>
+
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+<ion-list>
+    <div class="user">
+    
+    <h2 align="center">Pantry <span>Finder</span></h2>
+  
+     
+  <ion-item>
+    <ion-label position="floating">First Name(Optional)</ion-label>
+    <ion-input clearInput value= "" [(ngModel)]="user_fname"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Last Name(Optional)</ion-label>
+    <ion-input clearInput value= "" [(ngModel)]="user_lname"></ion-input>
+  </ion-item>
+  <ion-item>
+   
+    <ion-textarea placeholder="Enter your comment..." clearInput value= "" [(ngModel)]="comment"></ion-textarea>
+  </ion-item>
+
+ 
+  <ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="postcomment('HEy')" [disabled]="disabledButton">Comment on {{pantry_name}}</ion-button>
+
+</div>
+<br> <br>
+</ion-list>
+
+<ion-item button *ngFor="let p of users" >   
+    
+  <ion-label>
+   
+    <h2>{{p.user_fname}} {{p.user_lname}} </h2> <p>{{p.created_at}}</p>  
+    &nbsp; &nbsp;{{p.comment}} <br>
+  </ion-label>
+</ion-item>
+
+</ion-content>
+
+
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pantrypost"></ion-back-button>
+    </ion-buttons>
+   <ion-title> Pantry Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="noPadding">
+         
+    <br>
+    <p>&nbsp; &nbsp;Pantry Name: {{pantry_name}} <br>
+      &nbsp; &nbsp;Phone Number: {{phone_number}} <br>
+      &nbsp; &nbsp;List of Items: {{list_of_items}} <br>
+      &nbsp; &nbsp;Address: {{street_address}} {{barangay}} {{municipality}}  {{province}} <br>
+      &nbsp; &nbsp;Region: {{region}} <br>
+      &nbsp; &nbsp;Email: {{email}} <br>
+      &nbsp; &nbsp;GCash Number: {{gcash_number}} <br>
+      &nbsp; &nbsp;Category: {{category}} <br>
+      &nbsp; &nbsp;Status: {{status}} <br>    
+     </p>
+  </ion-grid>
+  <ion-button expand="full" class="ion-padding" color="success" (click)="openDonate()">Donate</ion-button>
+  <ion-button expand="full" class="ion-padding" color="success" (click)="openMap()">Go to Map</ion-button>
+  
+
+</ion-content> -->
+
+
+<!--<ion-header>
+  <ion-toolbar>
+     &nbsp; <ion-icon name="chevron-back-outline" size="large" [routerLink]="['/pantrypost']"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-slides class="listSlides">
+    <ion-slide>
+      <div> <br>
+        <img src="assets/pantry1.jpg">
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+
+  <ion-item lines='none'>
+   <p>Pantry Name: Calatagan Pantry <br>
+    Pantry Owner: Ma. Vianca Tumbaga <br>
+    Contact Number: 09628388273
+    Location: Calatagan, Lian, Batangas</p> 
+  </ion-item>
+
+
+</ion-content> -->
+
+  
+  <!--<ion-item button *ngFor="let p of users" >   
+    
+      <ion-label>
+       
+        <h3 class="title">{{p.user_fname}} {{p.user_lname}} </h3>        
+        &nbsp; &nbsp;{{p.comment}} <br>
+      </ion-label>
+  </ion-item>-->

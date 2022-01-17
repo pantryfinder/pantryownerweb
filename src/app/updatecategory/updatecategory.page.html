@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>   
+    <ion-buttons slot="start">
+      <ion-back-button (click)="back()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Category</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+<ion-list>
+  <h3 style="text-align: center;">Pantry <span>Finder</span></h3>
+
+  <ion-item>
+    <ion-label>Pantry Name: {{pantry_name}}</ion-label>
+    
+</ion-item>
+
+&nbsp;  
+
+  <ion-item>
+    <ion-label >  &nbsp;&nbsp; Food </ion-label>
+     <ion-checkbox [(ngModel)]="category_1"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    <ion-label >  &nbsp;&nbsp; Clothes </ion-label>  
+    <ion-checkbox [(ngModel)]="category_2"></ion-checkbox>
+  </ion-item>
+
+  <ion-item>
+    
+    <ion-label >  &nbsp;&nbsp; Medicine </ion-label>
+    <ion-checkbox [(ngModel)]="category_3"></ion-checkbox>
+  </ion-item>
+
+
+
+<ion-item>
+  <ion-label position="floating">List of Items</ion-label>
+  <ion-input clearInput value="" [(ngModel)]="list_of_items"></ion-input>
+</ion-item>
+
+
+<ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="crudAction('Updated')" [disabled]="disabledButton">Update</ion-button>
+
+<br>
+</ion-list>
+
+
+</ion-content>

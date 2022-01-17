@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Donation History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-padding">
+    <ion-card-content>
+  <ion-list>
+    <ion-item *ngFor="let d of donate">
+      
+      <ion-label>
+        <h3 class="title"> Date of Donation: {{d.date_of_donation}} <br> 
+        </h3>
+        <p class="subtext">
+          {{'From ' + d.pantry_id + ' Transaction: ' + d.transaction}}<br>
+          
+        </p>
+         </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-card-content>
+</ion-card>
+
+</ion-content>

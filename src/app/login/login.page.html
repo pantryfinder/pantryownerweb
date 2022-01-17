@@ -1,0 +1,43 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" icon ="menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  
+  <ion-list>
+    
+  <div class="user" *ngIf="!togglereply">
+    <br><br>
+    <br>
+    <p align="center"><img src="../../assets/pantrylogo.png" width="200" height="200"></p>
+
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input [(ngModel)]="username" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+  
+    <ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="tryLogin()">Login as Owner</ion-button>
+  
+    <p class="ion-padding info-1" align ="center">
+      If you do not have an account, click <span (click)="openRegister()">Register Now</span>
+    </p>
+
+  </div>
+  </ion-list>
+    
+  
+
+
+
+</ion-content>

@@ -1,0 +1,166 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pantrypost"></ion-back-button>
+    </ion-buttons>
+   <ion-title> Pantry Details</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+<br>
+  <!-- <div id="map" style="width: 100%; height: 40%;"></div> -->
+ 
+  <ion-grid class="noPadding">
+        
+    <ion-card-content>
+
+      <ion-item>
+        &nbsp;&nbsp;&nbsp;
+      <h1>{{pantry_name}} <ion-badge color="success">{{status}} </ion-badge></h1> <br>
+     </ion-item>
+<br>
+      <ion-item>
+        <ion-icon name="call-outline"></ion-icon>  &nbsp;
+        <ion-label>{{user_contact}} </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="list-outline"></ion-icon>   &nbsp;
+        <ion-chip *ngIf="category_1!=0" shape="round" expand="block" class="ion-padding" color="success">Foods</ion-chip>
+        <ion-chip *ngIf="category_1==0" shape="round" expand="block" class="ion-padding" disabled="true">Foods</ion-chip>
+  
+        <ion-chip *ngIf="category_2!=0" shape="round" expand="block" class="ion-padding" color="success">Clothes</ion-chip>
+        <ion-chip *ngIf="category_2==0" shape="round" expand="block" class="ion-padding" disabled="true">Clothes</ion-chip>
+  
+        <ion-chip *ngIf="category_3!=0" shape="round" expand="block" class="ion-padding" color="success">Medicine</ion-chip>
+        <ion-chip *ngIf="category_3==0" shape="round" expand="block" class="ion-padding" disabled="true">Medicine</ion-chip>
+  
+      </ion-item>
+      
+      <ion-item>
+       <ion-icon style="width: 60px;"></ion-icon>  &nbsp;
+            {{list_of_items}} 
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="location-outline"></ion-icon>   &nbsp;
+        <ion-label>{{street_address}} {{barangay}} {{municipality}} {{province}}</ion-label>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-icon name="time-outline"></ion-icon>   &nbsp;
+        <ion-label>{{open_time}} to {{close_time}}</ion-label> 
+      </ion-item>
+
+    
+      <ion-item>
+        <ion-icon name="call-outline"></ion-icon>   &nbsp;
+        <ion-label>GCash: {{gcash_number}}</ion-label>
+      </ion-item>
+
+      <ion-item *ngFor = "let p of users">
+        <ion-icon name="heart-circle-outline"></ion-icon>   &nbsp;
+        <ion-label>Number of Donations: <ion-badge>{{p.pantry_id}}</ion-badge></ion-label>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-icon name="toggle-outline"></ion-icon>   &nbsp;
+        <ion-label>{{status}}</ion-label>
+      </ion-item>
+     <!-- <ion-button shape="round" expand="block" class="ion-padding" color="success" (click)="openMap()">Go to Map</ion-button> -->
+
+    </ion-card-content>
+
+
+  </ion-grid>
+  <ion-card-content>
+
+    <ion-list>
+      <div class="user">
+    
+     <ion-label style="font-size: 16px;">Comment:</ion-label> 
+       
+    <ion-item>
+      <ion-label position="floating">First Name(Optional)</ion-label>
+      <ion-input clearInput value= "" [(ngModel)]="first_name"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Last Name(Optional)</ion-label>
+      <ion-input clearInput value= "" [(ngModel)]="last_name"></ion-input>
+    </ion-item>
+    <ion-item>
+     
+    <ion-textarea placeholder="Enter your comment..." clearInput value= "" [(ngModel)]="comment"></ion-textarea>
+    </ion-item>
+  
+    <ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="postcomment('HEy')" [disabled]="disabledButton">Comment on <br>{{pantry_name}}</ion-button>
+  
+  </div>
+  <br> <br>
+  </ion-list>
+  </ion-card-content>
+
+  <div style="margin-left: 10px; margin-right: 10px;" (ionChange)="segmentChanged($event)">
+    <ion-segment mode="ios" [value]="segmentValue">
+      <ion-segment-button value="1">
+         <ion-label color="tertiary">Comments of Donors</ion-label>
+      </ion-segment-button>
+        <ion-segment-button value="2">
+           <ion-label color="danger">Comments of <br>Pantry Seekers</ion-label>
+        </ion-segment-button>  
+    </ion-segment>
+    <div class="ion-text-center" *ngIf="segmentValue == '1'">
+
+    <ion-item>
+      <br>
+    <p><b>Comments of Donors to {{pantry_name}}</b></p>
+   </ion-item>
+    <ion-item button *ngFor="let p of user" >   
+      
+    <ion-label no-lines class="msgbubble">
+      <div class="innermsg-left"> 
+      <p style="font-size: 15px;">{{p.user_fname}} {{p.user_lname}} </p>
+       <ion-label> <p style="font-size: 10px;">  {{p.created_at}} </p> </ion-label>    
+      &nbsp; &nbsp;{{p.comment}} <br>
+      </div>
+    </ion-label>
+  </ion-item>
+
+  </div>
+
+  <div class="ion-text-center" *ngIf="segmentValue == '2'">
+  <ion-item>
+    
+    <p><b>Comments of Pantry Seekers to {{pantry_name}}</b></p>
+   </ion-item>
+    <ion-item button *ngFor="let ps of pscomments" >   
+      
+    <ion-label no-lines>
+      <div class="innermsg-right"> 
+        <p style="font-size: 15px;">{{ps.first_name}} {{ps.last_name}} </p>
+        <ion-label>  <p style="font-size: 10px;">{{ps.created_at}}</p>  </ion-label>      
+      &nbsp; &nbsp;{{ps.comment}} <br>
+      </div>
+    </ion-label>
+  </ion-item>
+</div>
+</div>
+</ion-content>
+
+

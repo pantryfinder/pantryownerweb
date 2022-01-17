@@ -1,0 +1,299 @@
+<ion-header>
+  <ion-toolbar>
+     
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/pantrypost"></ion-back-button>
+    </ion-buttons>
+   <ion-title>
+      <img style="height: 40px;" src='assets/netflix_logo.png'>
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="term"
+      debounce="500"
+      color="light"
+      placeholder="Search for Community Pantry..."
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<br>
+
+<!-- <ion-radio-group>
+  <ion-list-header>
+    <ion-label>Categories to Search:</ion-label>
+  </ion-list-header>
+  <ion-item class="filters">  
+
+    <ion-label color="tertiary" >Foods</ion-label>
+    <ion-radio color="success" value="apple"></ion-radio>
+ 
+
+    <ion-label color="danger">Clothes</ion-label>
+    <ion-radio color="tertiary" value="grape"></ion-radio>
+ 
+
+    <ion-label color="success">Medicine</ion-label>
+    <ion-radio color="danger" value="cherry"></ion-radio>
+  </ion-item>
+</ion-radio-group> -->
+
+<ion-list-header>
+  <ion-label>Categories to Search:<br></ion-label>
+</ion-list-header>
+<div class="ion-padding" (ionChange)="segmentChanged($event)">
+  <ion-segment mode="ios" [value]="segmentValue">
+    <ion-segment-button value="1">
+       <ion-label color="tertiary">All</ion-label>
+    </ion-segment-button>
+      <ion-segment-button value="2">
+         <ion-label color="danger">Foods</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="3">
+        <ion-label color="success">Clothes</ion-label>
+     </ion-segment-button>
+     <ion-segment-button value="4">
+      <ion-label color="warning">Medicine</ion-label>
+   </ion-segment-button>
+  </ion-segment>
+  <br>
+  <ion-label style="font-size: medium;"> Slide to View</ion-label>
+  <div class="ion-text-center" *ngIf="segmentValue == '1'">
+    <ion-list > 
+  
+<ion-item-sliding button *ngFor="let p of users |filter:term">   
+  <ion-item> 
+    
+  <ion-avatar slot="start">
+    <div class="avatar">
+      {{p.pantry_name.substring(0, 1).toUpperCase()}}
+    </div>
+  </ion-avatar>
+  <ion-label>
+    
+    <h3 class="title">{{p.pantry_name}} <br> 
+    </h3>
+    
+    <p>
+     
+      {{'Address: ' + p.barangay  + ',' + p.municipality + ',' + p.province}} <br>
+      Status: <ion-badge color="success">{{p.status}}</ion-badge><br>
+    </p>
+     </ion-label>
+  </ion-item>
+
+  <ion-item-options>
+    <ion-item-option (click)="openPantry(p.pantry_id)" color ="success">View</ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>
+
+</ion-list>
+<ion-list *ngFor != "let p of pantry">
+  <ion-item>
+    <ion-label>
+      <h3>No Community Pantry Found</h3>
+    </ion-label>
+  </ion-item>
+</ion-list>
+  
+  </div>
+
+
+  <div class="ion-text-center" *ngIf="segmentValue == '2'">
+    <ion-list > 
+<ion-item-sliding button *ngFor="let u of cat1 |filter:term">   
+  <ion-item> 
+  <ion-avatar slot="start">
+    <div class="avatar">
+      {{u.pantry_name.substring(0, 1).toUpperCase()}}
+    </div>
+  </ion-avatar>
+  <ion-label>
+    
+    <h3 class="title"> Pantry Name: {{u.pantry_name}} <br> 
+    </h3>
+    
+    <p>
+     
+      {{'Address: ' + u.barangay  + ',' + u.municipality + ',' + u.province}} <br>
+      Status: <ion-badge color="success">{{u.status}}</ion-badge><br>
+    </p>
+     </ion-label>
+  </ion-item>
+
+  <ion-item-options>
+    <ion-item-option (click)="openPantry(u.pantry_id)" color ="success">View</ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>
+
+</ion-list>
+<ion-list *ngFor != "let p of pantry">
+  <ion-item>
+    <ion-label>
+      <h3>No Community Pantry Found</h3>
+    </ion-label>
+  </ion-item>
+</ion-list>
+  
+  </div>
+
+
+
+  <div class="ion-text-center" *ngIf="segmentValue == '3'">
+    <ion-list > 
+<ion-item-sliding button *ngFor="let u of cat2 |filter:term">   
+  <ion-item> 
+  <ion-avatar slot="start">
+    <div class="avatar">
+      {{u.pantry_name.substring(0, 1).toUpperCase()}}
+    </div>
+  </ion-avatar>
+  <ion-label>
+    
+    <h3 class="title"> Pantry Name: {{u.pantry_name}} <br> 
+    </h3>
+    
+    <p>
+     
+      {{'Address: ' + u.barangay  + ',' + u.municipality + ',' + u.province}} <br>
+      Status: <ion-badge color="success">{{u.status}}</ion-badge><br>
+    </p>
+     </ion-label>
+  </ion-item>
+
+  <ion-item-options>
+    <ion-item-option (click)="openPantry(u.pantry_id)" color ="success">View</ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>
+
+</ion-list>
+<ion-list *ngFor != "let p of pantry">
+  <ion-item>
+    <ion-label>
+      <h3>No Community Pantry Found</h3>
+    </ion-label>
+  </ion-item>
+</ion-list>
+  
+  </div>
+
+  <div class="ion-text-center" *ngIf="segmentValue == '4'">
+    <ion-list > 
+<ion-item-sliding button *ngFor="let u of cat3 |filter:term">   
+  <ion-item> 
+  <ion-avatar slot="start">
+    <div class="avatar">
+      {{u.pantry_name.substring(0, 1).toUpperCase()}}
+    </div>
+  </ion-avatar>
+  <ion-label>
+    
+    <h3 class="title"> Pantry Name: {{u.pantry_name}} <br> 
+    </h3>
+    
+    <p>
+     
+      {{'Address: ' + u.barangay  + ',' + u.municipality + ',' + u.province}} <br>
+      Status: <ion-badge color="success">{{u.status}}</ion-badge><br>
+    </p>
+     </ion-label>
+  </ion-item>
+
+  <ion-item-options>
+    <ion-item-option (click)="openPantry(u.pantry_id)" color ="success">View</ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>
+
+</ion-list>
+<ion-list *ngFor != "let p of pantry">
+  <ion-item>
+    <ion-label>
+      <h3>No Community Pantry Found</h3>
+    </ion-label>
+  </ion-item>
+</ion-list>
+  
+  </div>
+
+
+
+</div>
+
+
+
+
+  
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list > 
+          <ion-item-sliding *ngFor="let p of users |filter:term">
+            <ion-item>
+          
+            <ion-avatar slot="start">
+              <div class="avatar">
+                {{p.pantry_name.substring(0, 1).toUpperCase()}}
+              </div>
+            </ion-avatar>
+            <ion-label>
+              
+              <h3 class="title"> Pantry Name: {{p.pantry_name}} <br> 
+              </h3>
+              
+              <p>
+               
+                {{'Address: ' + p.barangay  + ',' + p.municipality + ',' + p.province}} <br>
+                Status: <ion-badge color="success">{{p.status}}</ion-badge><br>
+              </p>
+               </ion-label>
+          
+              </ion-item>
+        
+
+          <ion-item-options>
+            <ion-item-option (click)="openPantry(p.pantry_id)" color ="success">View</ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+
+        </ion-list>
+        <ion-list *ngFor != "let p of pantry">
+          <ion-item>
+            <ion-label>
+              <h3>No Community Pantry Found</h3>
+            </ion-label>
+          </ion-item>
+        </ion-list> -->
+
+        <!--SHOW THE SKELETON TEXT -->
+        <!-- <ion-list *ngIf="showSkeleton">
+          <ion-item *ngFor="let d of [].constructor(5)">
+            <ion-thumbnail>
+             <ion-skeleton-text animated></ion-skeleton-text>
+            </ion-thumbnail>
+            <ion-label>
+              <h4><ion-skeleton-text animated style="width: 60%;"></ion-skeleton-text></h4>
+              <ion-text>
+                <p><ion-skeleton-text animated style="width: 40%;"></ion-skeleton-text></p>
+              </ion-text>
+            </ion-label>
+          </ion-item>
+        </ion-list> -->
+
+
+        <!-- NO ITEMS FOUND -->
+        <!-- <ion-list >
+          <ion-item>
+            <ion-label>
+              <h3>No Community Pantry Found</h3>
+            </ion-label>
+          </ion-item>
+        </ion-list> -->
+
+      <!-- </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>

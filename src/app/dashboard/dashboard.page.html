@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>CREATE ACCOUNT
+    <ion-back-button slot="start">
+      <ion-menu-button><img src="../../assets/back.svg" /></ion-menu-button> CREATE ACCOUNT
+    </ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg" padding>
+ 
+<div class="content">
+  <div class="user">
+  <h2 style="text-align: center;">Pantry <span>Finder</span></h2>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label>I am</ion-label>
+      <ion-select value="dog">
+        <ion-select-option value="owner">Owner</ion-select-option>
+        <ion-select-option value="donor">Donor</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+      
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password"></ion-input>
+       
+      </ion-item>
+      <br>
+
+      <h2 style="text-align: center;">Personal <span>Information</span></h2>
+      <br>
+     
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Address</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+  </div>  
+  <ion-button class="actionbutton" expand="full" color="success" style="text-transform: none;"
+  (click)="home()"><b>Create Account</b></ion-button>
+
+  </div>
+   <!-- <div class="form-group">
+                  <button class="btn btn-primary" id="register" type="submit" name="registerSubmit">Register</button>
+  //(click) ="navigateToDashboard
+                 </div> -->
+</div>
+</ion-content>
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+
+
+    <div class="container">
+      <div class="row align-items-center">
+        
+       
+
+          <div class="card">
+            <div class="card-header px-lg-5">
+              <div class="card-heading text-primary">REGISTER</div>
+            </div>
+            <div class="card-body p-lg-5">
+              <h3 class="mb-4">Get started with Pantry Finder </h3>
+         
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-floating mb-3">
+                  <input id="username" type="text" placeholder="Username" formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" />
+                  <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstname.errors.required">Name is required</div>
+                  </div>
+               
+                  <label for="username">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input  id="floatingInput" type="text" placeholder="name@example.com" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                     <div *ngIf="f.email.errors.required">Email is required</div>
+                     <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                  </div>
+               
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input id="floatingPassword" type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                  </div>
+                  <label for="floatingPassword">Password</label>
+                </div>
+               
+                <div class="form-group">
+                  
+                  <button class="btn btn-primary" id="register" type="submit" name="registerSubmit">Register</button>
+                </div>
+              </form>
+            </div>
+         
+          </div>
+       
+       
+      </div>
+    </div>
+  
+</ion-content> -->

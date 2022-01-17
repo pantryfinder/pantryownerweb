@@ -1,0 +1,24 @@
+<ion-content> 
+  <ion-card-content class="class">
+<ion-list>
+  &nbsp;<ion-icon (click)="close()" size="large" name="close-outline"></ion-icon>
+  <h1 style="text-align: center;">Pantry <span>Finder</span></h1>
+
+
+<ion-item>
+  <ion-label position="floating">Status</ion-label>
+  <ion-select interface="popover" [(ngModel)]="status">
+    <ion-select-option value="Open">Open</ion-select-option>
+    <ion-select-option value="Needs Donation">Needs Donation</ion-select-option>
+    <ion-select-option value="Closed">Closed</ion-select-option>
+   
+    
+  </ion-select>
+</ion-item>
+
+<ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="crudAction('Status Updated')" [disabled]="disabledButton">Update</ion-button>
+<br>
+</ion-list>
+
+</ion-card-content>
+</ion-content>

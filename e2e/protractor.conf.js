@@ -17,7 +17,7 @@ exports.config = {
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'http://sql6.freemysqlhosting.net:3306/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

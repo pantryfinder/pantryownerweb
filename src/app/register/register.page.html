@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu" icon="menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Create Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="bg" padding>
+<ion-list>
+    <div class="user">
+    <h2 align="center">Pantry <span>Finder</span></h2>
+    
+      <ion-item>
+        <ion-label position="floating">Role </ion-label>
+        <ion-select interface="popover" [(ngModel)]="user_type">
+          <ion-select-option value="Owner">Owner</ion-select-option>
+          <ion-select-option value="Donor">Donor</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Username(must be lowercase)</ion-label>
+        <ion-input [(ngModel)]="username"></ion-input>
+      </ion-item>
+
+      <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password"  type ="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-text class="error" color="danger" *ngIf="!form.get('password').valid && form.get('password').touched">
+        <ion-text *ngIf="form.get('password').hasError('required')">
+          * Please enter your Password
+        </ion-text>
+        <ion-text *ngIf="!form.get('password').hasError('required') && form.get('password').hasError('minlength')">
+          * Password must be of atleast 8 characters
+        </ion-text>
+      </ion-text>
+</form>
+      <ion-item>
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input type ="password" [(ngModel)]="confirm_pass"></ion-input>
+      </ion-item>
+
+  <br>
+      
+  <h3 style="text-align: center;">Personal <span>Information</span></h3>
+  <br>
+
+  <ion-item>
+    <ion-label position="floating">First Name</ion-label>
+    <ion-input [(ngModel)]="user_fname"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Middle Name</ion-label>
+    <ion-input [(ngModel)]="user_mname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Last Name</ion-label>
+    <ion-input [(ngModel)]="user_lname"></ion-input>
+  </ion-item>
+
+  <form [formGroup]="form">
+  <ion-item>
+    <ion-label position="floating">Contact Number(e.g. 09123456789)</ion-label>
+    <ion-input formControlName="phone" [(ngModel)]="user_contact"></ion-input>
+  </ion-item>
+  <ion-text class="error" color="danger" 
+    *ngIf="!form.get('phone').valid && form.get('phone').touched">
+    <ion-text *ngIf="form.get('phone').hasError('required')">
+      *Phone Number is Required(11 numbers are only allowed)
+    </ion-text>
+    <ion-text 
+      *ngIf="!form.get('phone').hasError('required') && form.get('phone').hasError('minlength')">
+      *  Please input a valid number.
+    </ion-text>
+  </ion-text>
+  </form>
+
+  <form [formGroup]="form">
+    <ion-item>
+      <ion-label position="floating">Email(e.g. asdfg@gmail.com)</ion-label>
+      <ion-input  formControlName="email" type="email" [(ngModel)]="user_email">
+      </ion-input>
+    </ion-item>
+    <ion-text class="error" color="danger" 
+    *ngIf="!form.get('email').valid && form.get('email').touched">
+    <ion-text *ngIf="form.get('email').hasError('required')">
+      * Please enter your Email Address
+    </ion-text>
+    <ion-text 
+      *ngIf="!form.get('email').hasError('required') && form.get('email').hasError('email')">
+      * Please enter proper Email Address
+    </ion-text>
+  </ion-text>
+  </form>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<ion-checkbox [(ngModel)]="tac"></ion-checkbox>
+ 
+  <ion-label>&nbsp; I accept the <span (click)="openTransparentModal()">Terms and Condition </span> </ion-label>
+  <ion-button shape="round" expand="full" class="ion-padding" color="success" (click)="tryRegister()" [disabled]="disabledButton">Register</ion-button>
+ 
+</div>
+<p class="ion-padding info-1" align ="center">
+  If you have an account, click <span (click)="openRegister()">Login Now</span>
+</p>
+</ion-list>
+
+</ion-content>
