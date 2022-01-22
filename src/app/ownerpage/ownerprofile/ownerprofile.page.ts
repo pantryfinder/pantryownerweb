@@ -125,7 +125,7 @@ export class OwnerprofilePage implements OnInit {
     });
     
 
-      this.ngOnInit();
+     // this.ngOnInit();
       this.ionViewDidEnter();
       event.target.complete();
 

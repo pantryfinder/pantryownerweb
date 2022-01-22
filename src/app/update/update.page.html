@@ -57,11 +57,11 @@
       <ion-label position="floating">Password</ion-label>
       <ion-input  type ="password" [(ngModel)]="password"></ion-input>
     </ion-item>
-    <p style="font-size: 14px; color: #999;" class="ion-padding" *ngIf="id!=0">
+    <p style="font-size: 14px; color: #999;" class="ion-padding">
       Leave the password blank if you don't want to change it.
     </p>
 
-    <ion-button shape ="round" expand="full" class="ion-padding" *ngIf="user_id!=0" color="success" (click)="crudAction('Updated')" [disabled]="disabledButton">Submit</ion-button>
+    <ion-button shape ="round" expand="full" class="ion-padding" *ngIf="user_id!=0" color="success" (click)="crudAction('Updated ')" [disabled]="disabledButton">Submit</ion-button>
 <br> <br>
   </ion-list>
 

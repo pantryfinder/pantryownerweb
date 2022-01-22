@@ -26,9 +26,18 @@
    <br> <br>
    <ion-item>  Your previous message: <br>
    </ion-item>
-    <ion-item *ngFor ="let l of lpm"> 
-      {{l.message}}
-    </ion-item>
+
+
+  <ion-card> 
+      <ion-item *ngFor ="let l of lpm">
+        <ion-label no-lines>
+          <div class="innermsg-right"> 
+            <ion-label text-wrap> {{l.message}} </ion-label>
+            <ion-label>  <p style="font-size: 10px;">{{l.created_at}}</p>  </ion-label>                        
+          </div>
+        </ion-label>
+      </ion-item>
+    </ion-card>
 
   </ion-card>
 </ion-content>

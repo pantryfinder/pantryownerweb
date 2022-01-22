@@ -2,8 +2,5 @@
 	"appId": "io.ionic.starter",
 	"appName": "Pantryfinder",
 	"webDir": "www",
-	"bundledWebRuntime": false,
-	"server": {
-		"url": "http://192.168.18.73:8100"
-	}
+	"bundledWebRuntime": false
 }

@@ -41,9 +41,9 @@ export class PantrydetailsPage implements OnInit {
   name = [];
   maplian: any = [];
   created_at: any;
-  category_1:string ="";
-  category_2: string ="";
-  category_3: string ="";
+  category_1:number;
+  category_2: number;
+  category_3:  number;
  open_time: string;
  close_time: string;
  pscomments=[]
