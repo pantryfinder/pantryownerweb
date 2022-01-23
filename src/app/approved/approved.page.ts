@@ -138,7 +138,7 @@ export class ApprovedPage implements OnInit {
                     this.disabledButton = false;
                     this.presentToast(a+res.msg);
                    //this.router.navigate(['approvedpage']);
-                    //this.sendsms();
+                    this.sendsms();
                    
                   }else {
                     alert.dismiss();
